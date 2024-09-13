@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/networkconnection"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Connection !"
+        android:textStyle="bold"
+        android:fontFamily="@font/amaranth"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please check your internet connectivity"
+        android:layout_marginTop="3dp"
+        android:textColor="#D8555353"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="and try again"
+        android:textColor="#D8555353"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/retry_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retry"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+       android:layout_margin="20dp"
+
+        android:background="@drawable/connection_btn_background"/>
+
+
+
+</LinearLayout>

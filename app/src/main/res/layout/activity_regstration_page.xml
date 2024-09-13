@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#A8F6E6CA"
+    tools:context=".Regstration_page">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/splashlogo"
+        android:layout_marginTop="40dp"
+        android:id="@+id/loginlogo"/>
+
+    <TextView
+        android:id="@+id/logintxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regestration Here"
+        android:textStyle="bold"
+        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="20dp"
+        android:textSize="24dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="20dp">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="15"
+            android:inputType="text"
+            android:hint="Name"
+            android:textAlignment="center"
+            android:fontFamily="@font/amaranth"
+            android:background="@drawable/background_shape"
+            android:id="@+id/name"
+            android:layout_marginTop="15sp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="15"
+            android:maxLength="10"
+            android:inputType="text"
+            android:hint="Mobile No"
+            android:textAlignment="center"
+            android:fontFamily="@font/amaranth"
+            android:background="@drawable/background_shape"
+            android:id="@+id/usermobilenumber"
+            android:layout_marginTop="15sp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="15"
+            android:inputType="textEmailAddress"
+            android:hint="Email Id"
+            android:textAlignment="center"
+            android:fontFamily="@font/amaranth"
+            android:background="@drawable/background_shape"
+            android:id="@+id/useremail"
+            android:layout_marginTop="15sp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="15"
+            android:inputType="text"
+            android:hint="UserName"
+            android:textAlignment="center"
+            android:fontFamily="@font/amaranth"
+            android:background="@drawable/background_shape"
+            android:id="@+id/username"
+            android:layout_marginTop="15sp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ems="15"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textAlignment="center"
+            android:fontFamily="@font/amaranth"
+            android:background="@drawable/background_shape"
+            android:id="@+id/userregisterpassword"
+            android:layout_marginTop="15sp"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkpasswordhidenot"
+            android:text="Show Password"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            android:backgroundTint="#FAB972"
+            android:fontFamily="@font/amaranth"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerbtn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold|italic"
+            android:fontFamily="@font/amaranth"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_background"
+            android:text="Register Here"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

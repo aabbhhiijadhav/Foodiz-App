@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201912321399",
+    "project_id": "otpverf-8c94d",
+    "storage_bucket": "otpverf-8c94d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201912321399:android:137f31a81800f0fd990d72",
+        "android_client_info": {
+          "package_name": "com.example.foodiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0nrzWAhMcL-ovMZirb7xZ31bqwujYtmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
