@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="10dp"
+    android:layout_height="match_parent"
+    tools:context=".MyProfileActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/splashlogo"
+        android:id="@+id/profilephpto"/>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editprofile"
+        android:text="Edit Profile"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/amaranth"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/profile_name"
+        android:layout_marginTop="20dp"
+        android:text="name"
+        android:background="@drawable/background_shape"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/amaranth"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/profile_mobileno"
+        android:layout_marginTop="20dp"
+        android:text="Mobile No"
+        android:background="@drawable/background_shape"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/amaranth"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/profile_emailid"
+        android:layout_marginTop="20dp"
+        android:text="Email Id"
+        android:background="@drawable/background_shape"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/amaranth"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/profile_usename"
+        android:layout_marginTop="20dp"
+        android:text="Username"
+        android:background="@drawable/background_shape"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/amaranth"/>
+
+
+
+
+</LinearLayout>

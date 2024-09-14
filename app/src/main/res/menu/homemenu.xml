@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/my_offers"
+        android:title="My Offers"
+        android:icon="@drawable/offers"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/my_cart"
+        android:icon="@drawable/cart"
+        android:title="My Cart"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/my_profile"
+        android:title="My Profile"
+        android:icon="@drawable/profile"
+        app:showAsAction="never"/>
+</menu>

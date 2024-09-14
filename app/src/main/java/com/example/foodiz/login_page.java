@@ -8,8 +8,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,6 +52,8 @@ public class login_page extends AppCompatActivity {
     //this class is used when we select google account it will help to show which account is selected by user
     GoogleSignInClient googleSignInClient;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class login_page extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
 
+
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(login_page.this);
+        editor=sharedPreferences.edit();
 
 
 
@@ -230,6 +237,7 @@ public class login_page extends AppCompatActivity {
                             if (status.equals("1")){
                                 Toast.makeText(login_page.this, "Succesfully Login", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(login_page.this, HomePage.class));
+                                editor.putString("username",usernameinput.getText().toString()).commit();
                                 progressDialog.dismiss();
                             }else {
                                 progressDialog.dismiss();

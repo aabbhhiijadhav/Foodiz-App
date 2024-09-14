@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,8 +33,34 @@ public class HomePage extends AppCompatActivity implements BottomNavigationView.
 
 
 
+
     }
 
+    //this method is used to show a menu item in home activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //menuinflater is used for importing the menu bar
+        MenuInflater inflater=getMenuInflater();
+        //store the menu
+        inflater.inflate(R.menu.homemenu,menu);
+
+        return true;
+    }
+
+
+//this method id used for when we are click on any menu item it will do some action on that menu item
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.my_offers){
+
+        } else if (item.getItemId() == R.id.my_cart) {
+
+        } else if (item.getItemId() == R.id.my_profile) {
+//we will used a intent when user click on this home item it will redirect from home activity to myprofile activity
+            startActivity(new Intent(HomePage.this,MyProfileActivity.class));
+        }
+        return true;
+    }
 
     //when we create a fragment in our application before using it first initialize that fragment.
     //initialization of home fragment
