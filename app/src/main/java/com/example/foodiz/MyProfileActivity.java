@@ -6,9 +6,11 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.foodiz.comman.Urls;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -23,6 +25,7 @@ import cz.msebera.android.httpclient.Header;
 public class MyProfileActivity extends AppCompatActivity {
 
     TextView profile_name,profile_mobileno,profile_emailid,profile_username;
+    ImageView profileimage;
     SharedPreferences sharedPreferences;
     String strusername;
     ProgressDialog progressDialog;
@@ -32,6 +35,7 @@ public class MyProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_profile);
 
         //find the id all presented textview
+        profileimage=findViewById(R.id.profilephpto);
         profile_name=findViewById(R.id.profile_name);
         profile_mobileno=findViewById(R.id.profile_mobileno);
         profile_emailid=findViewById(R.id.profile_emailid);
@@ -73,6 +77,7 @@ public class MyProfileActivity extends AppCompatActivity {
                                 JSONObject jsonObject=jsonArray.getJSONObject(i);
 
                                 String id=jsonObject.getString("id");
+                                String image=jsonObject.getString("image");
                                 String name=jsonObject.getString("name");
                                 String mobile_no=jsonObject.getString("mobileno");
                                 String emailid=jsonObject.getString("emailid");
@@ -83,6 +88,15 @@ public class MyProfileActivity extends AppCompatActivity {
                                 profile_mobileno.setText(mobile_no);
                                 profile_emailid.setText(emailid);
                                 profile_username.setText(username);
+
+
+
+                                //setting image to profile image view
+                                Glide.with(MyProfileActivity.this)
+                                        .load(Urls.ImageInServer+image)
+                                        .skipMemoryCache(true)
+                                        .error(R.drawable.profile)
+                                        .into(profileimage);
 
 
                             }
