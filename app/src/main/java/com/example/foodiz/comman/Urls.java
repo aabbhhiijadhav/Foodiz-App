@@ -12,4 +12,5 @@ public class Urls {
     public static String ImageInServer = WebServiceAddress + "Images/";
 
 
+    public static String GetCategoryAllDetails = WebServiceAddress + "categoryInfirmation.php";
 }
