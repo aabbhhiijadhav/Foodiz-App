@@ -8,14 +8,17 @@ public class POJOCategoryDetail {
     String ID,CategoryImage,CategopryName;
 
     public String getID() {
+
         return ID;
     }
 
     public void setID(String ID) {
+
         this.ID = ID;
     }
 
     public String getCategoryImage() {
+
         return CategoryImage;
     }
 
@@ -24,6 +27,7 @@ public class POJOCategoryDetail {
     }
 
     public String getCategopryName() {
+
         return CategopryName;
     }
 
@@ -33,8 +37,8 @@ public class POJOCategoryDetail {
 
     public POJOCategoryDetail(String ID, String categoryImage, String categopryName) {
         this.ID = ID;
-        CategoryImage = categoryImage;
-        CategopryName = categopryName;
+        this.CategoryImage = categoryImage;
+        this.CategopryName = categopryName;
 
 
     }

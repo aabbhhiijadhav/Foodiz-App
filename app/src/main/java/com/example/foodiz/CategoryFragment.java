@@ -20,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -28,7 +29,7 @@ import cz.msebera.android.httpclient.Header;
 public class CategoryFragment extends Fragment {
 
     ListView lvshowAllCategory;
-    TextView tvCategorynotAvilable;
+    TextView tvCategorynotAvilable,tv1;
 
 
     List<POJOCategoryDetail> pojoCategoryDetails;
@@ -41,10 +42,12 @@ public class CategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_category, container, false);
-        lvshowAllCategory = view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory);
+       // lvshowAllCategory = view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory);
+
+        pojoCategoryDetails=new ArrayList<>();
 
         tvCategorynotAvilable = view.findViewById(R.id.listnotavilable);
-
+        lvshowAllCategory = view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory);
 
 
         //creating the new mwthod
@@ -74,7 +77,7 @@ public class CategoryFragment extends Fragment {
                         try {
 
                             //accpting the data from the php
-                            JSONArray jsonArray = response.getJSONArray("");
+                            JSONArray jsonArray = response.getJSONArray("categorydetail");
 
                             //check if our jsonarray is empty the we will set textview visible
                             if (jsonArray.isNull(0)){
@@ -87,6 +90,7 @@ public class CategoryFragment extends Fragment {
                                 String id = jsonObject.getString("category_id");
                                 String CategoryImage = jsonObject.getString("categoryimage");
                                 String CategoryName = jsonObject.getString("categiryname");
+
 
 
                                 pojoCategoryDetails.add(new POJOCategoryDetail(id,CategoryImage,CategoryName));
