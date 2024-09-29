@@ -5,12 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="vertical"
+    android:orientation="horizontal"
+    android:weightSum="4"
     tools:context=".CategoryFragment">
-    <ListView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/LVcategoryfragmentShowMultipleCategory"/>
+        android:weightSum="4"
+        android:orientation="horizontal">
+        <ListView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:id="@+id/LVcategoryfragmentShowMultipleCategory"/>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.8"/>
+
+
+    </LinearLayout>
+
 
 
     <TextView

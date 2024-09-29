@@ -3,7 +3,7 @@ package com.example.foodiz.comman;
 
 public class Urls {
 
-    public static String WebServiceAddress = "http://192.168.29.231:80/FoodizAPI/";
+    public static String WebServiceAddress = "http://192.168.189.70:80/FoodizAPI/";
 
     public static String LoginUserWebservice = WebServiceAddress + "Loginuser.php";
     public static String UserRegisterWebservices =  WebServiceAddress + "userregisterdata.php";

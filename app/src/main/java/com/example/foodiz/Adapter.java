@@ -69,7 +69,7 @@ public class Adapter extends BaseAdapter {
         Glide.with(activity)
                 .load(Urls.ImageInServer+obj.getCategoryImage())
                 .skipMemoryCache(true)
-                .error(R.drawable.profile)
+                .error(R.drawable.imageloading)
                 .into(holder.ivcategoryimage);
 
         return view;

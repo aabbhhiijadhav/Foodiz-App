@@ -95,7 +95,7 @@ public class MyProfileActivity extends AppCompatActivity {
                                 Glide.with(MyProfileActivity.this)
                                         .load(Urls.ImageInServer+image)
                                         .skipMemoryCache(true)
-                                        .error(R.drawable.profile)
+                                        .error(R.drawable.imageloading)
                                         .into(profileimage);
 
 
