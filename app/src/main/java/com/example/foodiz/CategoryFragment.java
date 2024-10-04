@@ -28,12 +28,13 @@ import cz.msebera.android.httpclient.Header;
 
 public class CategoryFragment extends Fragment {
 
-    ListView lvshowAllCategory;
+    ListView lvshowAllCategory,LVcategoryfragmentShowMultipleCategory2;
     TextView tvCategorynotAvilable,tv1;
 
 
     List<POJOCategoryDetail> pojoCategoryDetails;
     Adapter adapter;
+    AdapterCategorywise adapterCategorywise;
 
 
 
@@ -55,8 +56,7 @@ public class CategoryFragment extends Fragment {
         GetAllCategory();
 
 
-
-
+       // LVcategoryfragmentShowMultipleCategory2.setAdapter(adapterCategorywise);
 
         return view;
     }
@@ -97,6 +97,7 @@ public class CategoryFragment extends Fragment {
                             }
 
                             adapter=new Adapter(pojoCategoryDetails,getActivity());
+
 
                             lvshowAllCategory.setAdapter(adapter);
 
