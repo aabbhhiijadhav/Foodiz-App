@@ -28,13 +28,17 @@ import cz.msebera.android.httpclient.Header;
 
 public class CategoryFragment extends Fragment {
 
-    ListView lvshowAllCategory,LVcategoryfragmentShowMultipleCategory2;
+    ListView lvshowAllCategory,tranding_dish_list;
     TextView tvCategorynotAvilable,tv1;
 
 
     List<POJOCategoryDetail> pojoCategoryDetails;
     Adapter adapter;
-    AdapterCategorywise adapterCategorywise;
+
+    //creating the next pojo class to fetcing multiple data from database.
+    List<POJO_Fetching_treandingDish> pojoFetchingTreandingDishes;
+    Adapter_tranding_Dish adapterTrandingDish;
+
 
 
 
@@ -43,22 +47,85 @@ public class CategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_category, container, false);
-       // lvshowAllCategory = view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory);
-
-        pojoCategoryDetails=new ArrayList<>();
-
-        tvCategorynotAvilable = view.findViewById(R.id.listnotavilable);
         lvshowAllCategory = view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory);
 
 
+
+
+        tvCategorynotAvilable = view.findViewById(R.id.listnotavilable);
+        tranding_dish_list=view.findViewById(R.id.LVcategoryfragmentShowMultipleCategory2);
+
+
+
+        //create our pojo oblect as the type of arralist because it is holding the multiple data and then transfer all the data to pojo class
+        pojoCategoryDetails = new ArrayList<>();
+        pojoFetchingTreandingDishes = new ArrayList<>();
+
+
         //creating the new mwthod
-
         GetAllCategory();
-
-
-       // LVcategoryfragmentShowMultipleCategory2.setAdapter(adapterCategorywise);
+        tranding_Dish();
 
         return view;
+    }
+
+    //this is a method or function to fetching the data from the data using the API and we used all the data tp the client side.
+    private void tranding_Dish() {
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        RequestParams params = new RequestParams();
+
+        client.post(Urls.GetTranding_Dish,
+                params,
+                new JsonHttpResponseHandler()
+                {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        super.onSuccess(statusCode, headers, response);
+
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("tranding_data");
+                            if (jsonArray == null){
+                                tvCategorynotAvilable.setVisibility(View.VISIBLE);
+                            }
+                            else {
+                                for (int i = 0 ; i < jsonArray.length() ; i++){
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    String Restaurant_Name = jsonObject.getString("Restaurant_Name");
+                                    String Dish_image = jsonObject.getString("Dish_image");
+                                    String Dish_Rating = jsonObject.getString("Dish_Rating");
+                                    String Dish_Discrepataion = jsonObject.getString("Dish_Discrepataion");
+
+
+                                    //This is a
+                                    pojoFetchingTreandingDishes.add(new POJO_Fetching_treandingDish(Restaurant_Name
+                                    ,Dish_image
+                                    ,Dish_Rating
+                                    ,Dish_Discrepataion));
+
+                                }
+                                adapterTrandingDish = new Adapter_tranding_Dish(pojoFetchingTreandingDishes,getActivity());
+                                tranding_dish_list.setAdapter(adapterTrandingDish);
+
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        super.onFailure(statusCode, headers, throwable, errorResponse);
+                    }
+                });
+
+
+
     }
 
     private void GetAllCategory() {
