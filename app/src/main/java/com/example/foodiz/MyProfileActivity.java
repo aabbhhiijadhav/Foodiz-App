@@ -1,11 +1,14 @@
 package com.example.foodiz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +24,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyProfileActivity extends AppCompatActivity {
 
     TextView profile_name,profile_mobileno,profile_emailid,profile_username;
-    ImageView profileimage;
+    CircleImageView profileimage;
+    AppCompatButton editprofile;
     SharedPreferences sharedPreferences;
     String strusername;
     ProgressDialog progressDialog;
@@ -40,10 +45,15 @@ public class MyProfileActivity extends AppCompatActivity {
         profile_mobileno=findViewById(R.id.profile_mobileno);
         profile_emailid=findViewById(R.id.profile_emailid);
         profile_username=findViewById(R.id.profile_usename);
+        editprofile=findViewById(R.id.editprofile);
 
         sharedPreferences= PreferenceManager.getDefaultSharedPreferences(MyProfileActivity.this);
 
          strusername=sharedPreferences.getString("username","");
+
+
+
+
 
 
     }
@@ -97,6 +107,28 @@ public class MyProfileActivity extends AppCompatActivity {
                                         .skipMemoryCache(true)
                                         .error(R.drawable.imageloading)
                                         .into(profileimage);
+
+                                //this will be working at the time when we are clicking on edit button
+                                editprofile.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent;
+                                        intent = new Intent(MyProfileActivity.this,updateprofile.class);
+
+                                        //when we are transfer from one activity to second that time we will put extra data from this activity
+                                        intent.putExtra("person_name",name);
+                                        intent.putExtra("mobile_no",mobile_no);
+                                        intent.putExtra("profile_email",emailid);
+                                        intent.putExtra("profle_username",username);
+
+                                        startActivity(intent);
+
+
+                                    }
+                                });
+
+
+
 
 
                             }

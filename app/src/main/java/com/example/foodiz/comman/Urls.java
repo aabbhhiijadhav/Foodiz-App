@@ -15,4 +15,5 @@ public class Urls {
     public static String GetCategoryAllDetails = WebServiceAddress + "categoryInfirmation.php";
     public static String GetCategoryWiseAllDetails = WebServiceAddress + "categoryWiseDish.php";
     public static String GetTranding_Dish = WebServiceAddress + "tranding_category.php";
+    public static String update_profile = WebServiceAddress + "update_profile.php";
 }
