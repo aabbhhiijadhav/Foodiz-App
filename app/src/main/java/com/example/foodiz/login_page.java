@@ -1,6 +1,5 @@
 package com.example.foodiz;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -17,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodiz.Admin.admin;
 import com.example.foodiz.comman.Urls;
 import com.example.foodiz.comman.networkchangeListner;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -234,12 +234,17 @@ public class login_page extends AppCompatActivity {
                         super.onSuccess(statusCode, headers, response);
                         try {
                             String status =response.getString("success");
-                            if (status.equals("1")){
+                            String user_role = response.getString("user_role");
+                            if (status.equals("1")&&user_role.toUpperCase().equals("USER")){
                                 Toast.makeText(login_page.this, "Succesfully Login", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(login_page.this, HomePage.class));
                                 editor.putString("username",usernameinput.getText().toString()).commit();
                                 progressDialog.dismiss();
-                            }else {
+                            } else if (status.equals("1")&&user_role.toUpperCase().equals("ADMIN")) {
+                                Toast.makeText(login_page.this, "Succesfully Login", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(login_page.this, admin.class));
+                                progressDialog.dismiss();
+                            } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(login_page.this, "Login Failed try again", Toast.LENGTH_SHORT).show();
                             }

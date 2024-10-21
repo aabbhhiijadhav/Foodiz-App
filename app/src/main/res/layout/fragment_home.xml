@@ -5,11 +5,21 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Home fragment" />
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:id="@+id/LVcategoryfragmentShowMultipleCategory"/>
+
+
+
+
+
+    </LinearLayout>
 
 </FrameLayout>
