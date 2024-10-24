@@ -1,10 +1,13 @@
 package com.example.foodiz.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,6 +21,7 @@ import com.example.foodiz.Admin.AdapterClass.AdminAdapter;
 import com.example.foodiz.POJOCategoryDetail;
 import com.example.foodiz.R;
 import com.example.foodiz.comman.Urls;
+import com.example.foodiz.viewallcustomerlocatation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,11 +36,30 @@ public class admin extends AppCompatActivity {
     RecyclerView adminrecycleview;
     List<POJOCategoryDetail> pojoCategoryDetailList;
     AdminAdapter adminAdapter;
+    CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+
+        cardView=findViewById(R.id.showuserlocation);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(admin.this, viewallcustomerlocatation.class));
+            }
+        });
+
+
+
+
+
+
+
+
+
 
         //creating the object of recycle view
         adminrecycleview=findViewById(R.id.adminrecycleview);
